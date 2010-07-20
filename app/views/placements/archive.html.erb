@@ -1,0 +1,32 @@
+<h2 class="smalltitle">Archived Placements</h2>
+
+<table border='1'>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Archive</th>
+    <th>Advertiser</th>
+  </tr>
+<% idd = params[:id] %>
+<% for placement in @placements %>
+<tr>
+    <td><%=h placement.id %></td>
+    <td><%=h placement.name %></td>
+	<td><a href="http://<%= placement.url %>" target="_blank"><img src="<%= placement.image %>" hieght="30" width="30"></a></td>
+    <td><%=h placement.archive %></td>
+    <td><%=h placement.user_id %></td>
+    <td><%= link_to 'Show', :controller => "placements", :action => "show", :id => idd,  :plaid => placement.id %></td>
+    <td><%= link_to 'Edit', :controller => "placements", :action => "edit", :id => idd,  :plaid => placement.id %></td>
+    <td><%= link_to 'Destroy', placement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+<div class="smallgraytext">
+<%= link_to 'New placement', :controller => 'placements',:action => "new", :id => idd  %>
+ - 
+<%= link_to 'Hide Archive', :controller => 'placements', :action => 'index', :id => idd %>
+</div>

@@ -1,0 +1,32 @@
+<h2 class="smalltitle">New Website</h2>
+
+<% form_for(@website) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <% f.label :id %><br />
+    <% f.hidden_field :id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :publisher %><br />
+    <%= f.hidden_field :user_id, :value => params[:id] %>
+  </p>
+  <p>
+    <%= f.label :archive %><br />
+    <%= f.check_box(:archive) %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+<div class="smallgraytext">
+<%= link_to 'Home', :controller => 'websites',:action => "index", :id => params[:id] %>
+</div>

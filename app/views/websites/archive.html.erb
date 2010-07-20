@@ -1,0 +1,33 @@
+<h2 class="smalltitle">Archived Websites</h2>
+
+<table border='1'>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Archive</th>
+    <th>Publisher</th>
+  </tr>
+<% idd = params[:id] %>
+<% for website in @websites %>
+
+  <tr>
+    <td><%=h website.id %></td>
+    <td><%=h website.name %></td>
+    <td><%=h website.url %></td>
+    <td><%=h website.archive %></td>
+    <td><%=h website.user_id %></td>
+    <td><%= link_to 'Show', :controller => "websites", :action => "show", :id => idd,  :webid => website.id %></td>
+    <td><%= link_to 'Edit', :controller => "websites", :action => "edit", :id => idd,  :webid => website.id %></td>
+    <td><%= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'placements', :controller => 'websiteplacements', :action => 'index' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="smallgraytext">
+<%= link_to 'New Website', :controller => 'websites',:action => "new", :id => idd %>
+ - 
+<%= link_to 'Hide Archive', :controller => 'websites', :action => 'index', :id => idd %>
+</div>

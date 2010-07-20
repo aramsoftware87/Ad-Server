@@ -1,0 +1,21 @@
+<title> Login Page </title>
+<br><br><br><br>
+<font color=green><%= flash[:notice]%></font>
+<div class="depot-form">
+<% form_tag do %>
+<fieldset> <legend><font face='Tahoma, sans-serif'>Please Login</font></legend>
+<div align='center'> <font face='Tahoma, sans-serif'><label for="name">Username:</label></font> <%= text_field_tag :name, params[:name] %>
+</div><br>
+<div align='center'><font face='Tahoma, sans-serif'><label for="password">Password:</label></font> <%= password_field_tag :password, params[:password] %>
+</div><br>
+<div align='center'>
+<%= submit_tag "Login" %>
+
+</div> </fieldset>
+
+<div align="center" class="smallgraytext" style="padding:9px;">
+<a href="sendemail">Forget Password</a></div>
+</br>
+
+<% end %>
+</div>

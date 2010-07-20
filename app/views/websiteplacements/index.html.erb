@@ -1,0 +1,31 @@
+<h1>Listing websiteplacements</h1>
+
+<table border='1'>
+  <tr>
+    <th>Id</th>
+    <th>Placementid</th>
+    <th>Website</th>
+    <th>Rotation</th>
+    <th>Embededcode</th>
+    <th>Status</th>
+  </tr>
+
+<% for websiteplacement in @websiteplacements %>
+  <tr>
+    <td><%=h websiteplacement.id %></td>
+    <td><%=h websiteplacement.placement_id %></td>
+    <td><%=h websiteplacement.website_id %></td>
+    <td><%=h websiteplacement.rotation %></td>
+    <td><%=h embeded_code(websiteplacement) %></td>
+    <td><%=h websiteplacement.status %></td>
+    <td><%= link_to 'Show', :controller => "websiteplacements", :action => "show", :webid => websiteplacement.website_id, :id => params[:id] %></td>
+    <td><%= link_to 'Edit', :controller => "websiteplacements", :action => "edit", :webid => websiteplacement.website_id, :id => params[:id] %></td>
+    <td><%= link_to 'Destroy', websiteplacement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="smallgraytext">
+<%= link_to 'New websiteplacement', :controller => "websiteplacements", :action => "new", :webid => websiteplacement.website_id, :id => params[:id]%>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Websiteplacements: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'style.css' %>
+</head>
+<body>
+	<div id="page" align="center">
+		<div id="content" style="width:800px">
+			<div id="logo">
+				<div style="margin-top:70px" class="whitetitle">AdServer</div>
+			</div>
+			<div id="topheader">
+				<div align="left" class="bodytext">
+					<br />
+					<strong>Engine Yard</strong><br />
+					USA, CA, San Francisco, 555<br />
+					Phone: 415-430-5540<br />
+					amustafa@engineyard.com<br>
+					<p align='right' style='color: black' class="smallredtext">
+						<% if params[:adm] == "admin" %>
+						<%= link_to "Admin", :controller => "users", :action => "index" %>
+						<%= "as" %>
+						<% end %>
+				 <%= link_to @current_user.name, :controller => 'admin', :action => 'edit', :id => @current_user.id %>&nbsp;&nbsp;&nbsp;</p>
+				</div>
+				<!-- <div id="toplinks" class="smallgraytext">
+								 <%= link_to "Admin", :controller => "users", :check => 'yes' %>
+							</div> -->
+			</div>
+			<div id="menu">
+				<div align="right" class="smallwhitetext" style="padding:9px;">
+					<% if @current_user.utype == "Publisher"%>
+				<%= link_to "Home", :controller => "websites", :action => "index", :uid => params[:uid]%>
+				<% else %>
+				<%= link_to "Home", :controller => "placements", :action => "index", :uid => params[:uid]%>
+				<% end %> | <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> | <a href="mailto:amustafa@engineyard.com?subject=Need%20Username&body=Hello%20Sir%0A%0AI%20want%20username%20from%20type%20publisher%20or%20advertiser!">Request Account</a>
+				</div>
+			</div>
+			<div id="submenu">
+				<div align="right" class="smallgraytext" style="padding:9px;">
+					<a href="http://engineyard.com" target="_blank">Engine Yard</a> | <a href="http://railsdispatch.com"target="_blank">Rails Dispatch</a> | <a href="http://railsdirectory.com"target="_blank">Rails Directory</a> | <a href="http://peertester.com"target="_blank">Peer Tester</a> | <a href="http://jruby.org"target="_blank">JRuby</a> | <a href="http://railsplugins.com"target="_blank">Rails Plugins</a>
+				</div>
+			</div>
+			<div id="contenttextfull">
+				<div style="padding:10px">	
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</div></div>
+<div id="footer" class="smallgraytext">
+	<% if @current_user.utype == "Publisher"%>
+<%= link_to "Home", :controller => "websites", :action => "index", :uid => params[:uid]%>
+<% else %>
+<%= link_to "Home", :controller => "placements", :action => "index", :uid => params[:uid]%>
+<% end %> | <a href="mailto:amustafa@engineyard.com?subject=Need%20Username&body=Hello%20Sir%0A%0AI%20want%20username%20from%20type%20publisher%20or%20advertiser!">Email Me</a>
+	| Ad Server 
+	&copy; 2010 | <a href="http://www.engineyard.com" target="_blank">Engine Yard</a> 
+</div>
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+
+
+Processing WebsiteplacementsController#show (for 127.0.0.1 at 2010-07-08 16:27:02) [GET]
+  Parameters: {"webid"=>"5", "uid"=>"100", "id"=>"26"}
+Rendering template within layouts/websiteplacements
+Rendering websiteplacements/show
+Completed in 60ms (View: 11, DB: 47) | 200 OK [http://localhost/websiteplacements/show/26.100.5]

@@ -1,0 +1,20 @@
+<h1>Edit Profile</h1>
+<% idd = params[:id] %>
+<% user = User.find(params[:id], :select => "name, utype")%>
+<p align='center' style='color: blue'>
+	Welcome <%= user.name %>
+	</p>
+	<form action=users>
+	Old Password: <input type="password" name="oldpass" /><br />
+	New Password: <input type="password" name="newpass" /><br />
+	Confirm Password: <input type="password" name="conpass" /><br />
+	<input type="submit" value="Change">
+	</form>
+<%= link_to 'logout', :controller => 'admin', :action => 'logout' %>
+
+<% 
+if user.utype == "Publisher" %>
+<%= link_to 'Home',:controller => 'websites',:action => "index", :id => params[:id] %>
+<% else %>
+<%= link_to 'Home',:controller => 'placements',:action => "index", :id => params[:id]	%>
+<% end %>

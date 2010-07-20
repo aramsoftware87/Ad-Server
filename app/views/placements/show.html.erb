@@ -1,0 +1,35 @@
+<h2 class="smalltitle">Show Placement</h2>
+<p>
+  <b>Id:</b>
+  <%=h @placement.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @placement.name %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @placement.image %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @placement.url %>
+</p>
+
+<p>
+  <b>Archive:</b>
+  <%=h @placement.archive %>
+</p>
+
+<p>
+  <b>Advertiser:</b>
+  <%=h @current_user.name %>
+</p>
+<% idd = @placement.user_id %>
+<div class="smallgraytext">
+<%= link_to 'Edit', :controller => "placements", :action => "edit", :id => idd,  :plaid => @placement.id %> |
+<%= link_to 'Home', :controller => 'placements',:action => "index", :id => idd   %>
+</div>

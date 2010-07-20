@@ -1,0 +1,30 @@
+<h2 class="smalltitle">Show Website</h2>
+<p>
+  <b>Id:</b>
+  <%=h @website.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @website.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @website.url %>
+</p>
+
+<p>
+  <b>Archive:</b>
+  <%=h @website.archive %>
+</p>
+
+<p>
+  <b>Publisher:</b>
+  <%=h @current_user.name %>
+</p>
+<% idd = @website.user_id %>
+<div class="smallgraytext">
+<%= link_to 'Edit', :controller => "websites", :action => "edit", :id => idd,  :webid => @website.id %> |
+<%= link_to 'Home', :controller => 'websites',:action => "index", :id => idd %>
+</div>

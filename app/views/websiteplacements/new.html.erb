@@ -1,0 +1,37 @@
+<h2 class="smalltitle">New Placement Publisher</h2>
+
+<% form_for @websiteplacement, :url => {:controller => "websiteplacements", :action => "create", :uid => params[:uid], :webid => params[:webid]} do |f| %>
+  <%= f.error_messages %>
+
+   <p>
+    <%= f.label :id %><br />
+    <%= f.hidden_field :id %>
+  </p>
+  <p>
+    <%= f.label :placement_id %><br />
+    <%= f.hidden_field :placement_id, :value => params[:webid] %>
+  </p>
+  <p>
+    <%= f.label :website_id %><br />
+	<% @webnames = Website.find(:all, :select => "id, name")%>
+ 	<%=  f.select(:website_id, [["==None==",0]] + @webnames.collect {|p| [ p.name, p.id ] }) %>
+  </p>
+  <p>
+    <% f.label :rotation %><br />
+    <%= f.hidden_field :rotation, :value => 1 %>
+  </p>
+
+	<%= f.hidden_field :click, :value => 0 %>
+	<%= f.hidden_field :view, :value => 0 %>
+  <p>
+    <% f.label :status %><br />
+    <% f.radio_button(:status, "Accept") %> 
+	<%= f.radio_button(:status, "Request", :checked => true) %> Request
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+<div class="smallgraytext">
+<%= link_to "Back", :controller => "websiteplacements", :action => "placewebsites", :uid => params[:uid], :webid => params[:webid] %>
+</div>

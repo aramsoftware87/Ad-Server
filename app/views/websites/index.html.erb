@@ -1,0 +1,84 @@
+<head>
+	<title>Page</title>
+	<script type="text/javascript">
+	function selText(id)
+	  {
+	    document.getElementById(id).select()
+	  }
+	</script>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+</head>
+<body>
+	<h2 class="smalltitle">My Websites</h2>
+<table border='1'>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Archive</th>
+    <th>Publisher</th>
+	<th colspan='4'>Options</th>
+	<th>Script</th>
+  </tr>
+<% idd = params[:id] %>
+<% for website in @websites %>
+  <tr>
+    <td><%=h website.id %></td>
+    <td><%=h website.name %></td>
+    <td><%=h website.url %></td>
+    <td><%=h website.archive %></td>
+    <td><%=h @current_user.name %></td>
+    <td><%= link_to 'Show', :controller => "websites", :action => "show", :id => idd,  :webid => website.id %></td>
+    <td><%= link_to 'Edit', :controller => "websites", :action => "edit", :id => idd,  :webid => website.id %></td>
+    <td><%= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'placements', :controller => 'websiteplacements', :action => 'webplacements', :webid => website.id, :uid => website.user_id %></td>
+	<td><input type="text" value="<script type='text/javascript' language='javascript'>
+						     {
+						        var httpRequest;
+						        if (window.XMLHttpRequest) {
+						            httpRequest = new XMLHttpRequest();
+						            if (httpRequest.overrideMimeType) {
+						                httpRequest.overrideMimeType('text/xml');
+						            }
+						        } 
+						        else if (window.ActiveXObject) {
+						            try {
+						                httpRequest = new ActiveXObject('Msxml2.XMLHTTP');
+						            } 
+						            catch (e) {
+						                try {
+						                    httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+						                } 
+						                catch (e) {}
+						            }
+						        }
+						        if (!httpRequest) {
+						            alert('Giving up :( Cannot create an XMLHTTP instance');
+						            return false;
+						        }
+						        httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
+						        httpRequest.open('GET', '<%= HOSTNAME %>/websites/ad/<%= website.id %>', true);
+						        httpRequest.send('');
+						    }
+						    function alertContents(httpRequest) {
+						        if (httpRequest.readyState == 4) {
+						            if (httpRequest.status == 200) {
+						                document.write(httpRequest.responseText);
+						            } else {
+						                alert('There was a problem with the request.');
+						            }
+						        }
+						    }
+						</script>" id="<%= website.id %>" onclick="selText(id)"></td>
+	<!-- <%= text_field :get,"script", :value => "<script> Hello World </script>" %> -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="smallgraytext">
+<%= link_to 'New Website', :controller => 'websites',:action => "new", :id => idd %>
+ - 
+<%= link_to 'Show Archive', :controller => 'websites', :action => 'archive', :id => idd %>
+</div>
+</body>

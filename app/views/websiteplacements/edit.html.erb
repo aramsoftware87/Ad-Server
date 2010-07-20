@@ -1,0 +1,39 @@
+<h2 class="smalltitle">Edit Placement</h2>
+
+<% form_for @websiteplacement, :url => {:controller => "websiteplacements", :action => "update", :id => params[:id], :uid => params[:uid], :webid => @websiteplacement.website_id } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.hidden_field :id %>
+  </p>
+  <p>
+    <%= f.label :placement_id %><br />
+    <%= f.hidden_field :placement_id %>
+  </p>
+  <p>
+    <%= f.label :website_id %><br />
+    <%= f.hidden_field :website_id %>
+  </p>
+  <p>
+    <%= f.label :rotation %><br />
+    <%= f.text_field :rotation %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+   	<%= f.radio_button(:status, "Accept") %> Accept
+	<%= f.radio_button(:status, "Request") %> Request
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+
+  </p>
+<% end %>
+<div class="smallgraytext">
+<% if Websiteplacement.sum(@websiteplacement.rotation, :conditions => ['website_id = ?', @websiteplacement.website_id ]).to_i < 101 %>
+<%= link_to 'Show', :controller => "websiteplacements", :action => "show",:id => @websiteplacement.id, :uid => params[:uid] , :webid => @websiteplacement.website_id %> |
+<%= link_to 'Back', :controller => "websiteplacements", :action => "webplacements",:uid => params[:uid], :webid => @websiteplacement.website_id %>
+<% else %>
+<font color="red"><%= "Please satisfy the conditions"%></font>
+<% end %>
+</div>

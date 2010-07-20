@@ -1,0 +1,43 @@
+<h1>Editing user</h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <% f.label :type %><br />
+   	<% f.radio_button(:utype, "Publisher") %> Publisher
+	<% f.radio_button(:utype, "Advertiser") %> Advertiser
+	<% f.radio_button(:utype, "Admin") %> Admin
+  </p>
+  <p>
+    <% f.label :archive %><br />
+    <% f.check_box(:archive) %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<% link_to 'Show', @user %> |
+<% 
+if @user.utype == "Publisher" %>
+<%= link_to 'Home',:controller => 'websites',:action => "index", :id => params[:id] %>
+<% else %>
+<%= link_to 'Home',:controller => 'placements',:action => "index", :id => params[:id]	%>
+<% end %>

@@ -1,0 +1,35 @@
+<h1>Show User</h1>
+<br>
+<p>
+  <b>Id:</b>
+  <%=h @user.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @user.password %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @user.utype %>
+</p>
+
+<p>
+  <b>Archive:</b>
+  <%=h @user.archive %>
+</p>
+<br>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', :controller => "users", :check => 'no' %>
+

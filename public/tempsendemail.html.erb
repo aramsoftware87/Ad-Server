@@ -1,0 +1,19 @@
+
+<div class="depot-form">
+<% form_tag do %>
+<fieldset> <legend>Forget Password</legend>
+<div> <label for="name">Email:</label> <%= text_field_tag :email, params[:email] %>
+</div>
+<div>
+<%= submit_tag "Send" %>
+
+</div> </fieldset>
+<% end %>
+</div>
+
+#require 'mysql'
+
+#mysql = Mysql.init()
+#mysql.connect('localhost')
+#mysql.select_db('development.sqlite3')
+#mysqlquery("SELECT * FROM users")

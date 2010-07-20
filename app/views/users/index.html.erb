@@ -1,0 +1,33 @@
+<h1>All Users</h1>
+<br>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th align='center'>Type</th>
+<th colspan='5' align='center'>Options</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.id %></td>
+    <td><%=h user.name %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.password %></td>
+    <td><%=h user.utype %></td>
+    <td><% h user.archive %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', :controller => "users", :action => "edit", :id => user.id  %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td>
+	<% if user.utype == "Publisher"%>
+	<%= link_to 'Assume', :controller => "websites", :action => "index", :id => user.id, :adm => "admin" %>
+	<% else %>
+	<%= link_to 'Assume', :controller => "placements", :action => "index", :id => user.id, :adm => "admin" %>
+	<% end %>
+	</td>
+  </tr>
+<% end %>
+</table>

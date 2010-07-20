@@ -1,0 +1,36 @@
+<h2 class="smalltitle">My Current Placements</h2>
+
+<table border='1'>
+  <tr>
+    <th>Id</th>
+    <th>Placementid</th>
+	<th>view</th>
+	<th>click</th>
+    <th>Website</th>
+    <th>Rotation</th>
+    <th>Embededcode</th>
+    <th>Status</th>
+  </tr>
+<% if @websiteplacements %>
+<% for websiteplacement in @websiteplacements %>
+  <tr>
+    <td><%=h websiteplacement.id %></td>
+    <td><%=h Placement.find(websiteplacement.placement_id, :select => "name").name %></td>
+	<td><%=h websiteplacement.view %></td>
+	<td><%=h websiteplacement.click %></td>
+    <td><%=h Website.find(websiteplacement.website_id, :select => "name").name %></td>
+    <td><%=h websiteplacement.rotation %></td>
+    <td><%=h embeded_code(websiteplacement) %></td>
+    <td><%=h websiteplacement.status %></td>
+    <td><%= link_to 'Show', :controller => "websiteplacements", :action => "show", :id => websiteplacement.id, :webid => websiteplacement.website_id, :uid => params[:uid] %></td>
+<td><%= link_to 'Edit', :controller => "websiteplacements", :action => "edit", :id => websiteplacement.id, :webid => websiteplacement.website_id, :uid => params[:uid] %></td>
+  </tr>
+<% end %>
+<%end%>
+</table>
+
+
+<br />
+<div class="smallgraytext">
+<%= link_to 'Show Requests', :controller => "websiteplacements", :action => "webplacements", :uid => params[:uid], :webid => params[:webid] %>
+</div>

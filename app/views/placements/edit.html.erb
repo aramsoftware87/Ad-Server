@@ -1,0 +1,38 @@
+<h2 class="smalltitle">Editing Placement</h2>
+<% idd = params[:id] %>
+<% form_for(@placement) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <% f.label :id %><br />
+    <% f.hidden_field :id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+ <p>
+    <% f.label :advertiser %><br />
+    <% f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :archive %><br />
+    <%= f.check_box(:archive) %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+<% f = @placement %>
+<div class="smallgraytext">
+<%= link_to 'Show', :controller => "placements", :action => "show", :id => idd,  :plaid => f.id %> |
+<%= link_to 'Home', :controller => 'placements',:action => "index", :id => @placement.user_id %>
+</div>

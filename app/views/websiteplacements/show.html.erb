@@ -1,0 +1,40 @@
+<h2 class="smalltitle">Show Placement</h2>
+<p>
+  <b>Id:</b>
+  <%=h @websiteplacement.id %>
+</p>
+
+<p>
+  <b>Placementid:</b>
+  <%=h @websiteplacement.placement_id %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @websiteplacement.website_id %>
+</p>
+
+<p>
+  <b>Rotation:</b>
+  <%=h @websiteplacement.rotation %>
+</p>
+
+<p>
+  <b>Embededcode:</b>
+  <%=h embeded_code(@websiteplacement) %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @websiteplacement.status %>
+</p>
+<div class="smallgraytext">
+<% if @current_user.utype == "Publisher"%>
+<%= link_to 'Edit', :controller => "websiteplacements", :action => "edit",:id => @websiteplacement.id, :uid => params[:uid] , :webid => @websiteplacement.website_id %>
+<%end%> |
+<% if @current_user.utype == "Publisher" %>
+<%= link_to 'Back', :controller => "websiteplacements", :action => "webplacements",:uid => params[:uid], :webid => @websiteplacement.website_id %>
+<% else %>
+<%= link_to 'Back', :controller => "websiteplacements", :action => "placewebsites",:uid => params[:uid], :webid => @websiteplacement.placement_id %>
+<% end %>
+</div>

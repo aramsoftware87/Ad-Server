@@ -1,0 +1,17 @@
+<title> Forget Password </title>
+<h3>Send me Password</h3>
+<font color=green><%= flash[:notice] %></font>
+<div class="depot-form">
+<% form_tag do %>
+<fieldset> <legend>Forget Password</legend>
+<div> <label for="email">Email:</label> <%= text_field_tag :email, params[:email] %>
+</div>
+<div><br>
+<%= submit_tag "Send" , :action => "sendemail" %>
+
+</div> </fieldset>
+<div align="center" class="smallgraytext" style="padding:9px;">
+<%= link_to 'Home', :controller => 'admin' %>
+</div>
+<% end %>
+</div>
