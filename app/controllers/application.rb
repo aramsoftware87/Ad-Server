@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :authorize, :except => [:ad, :click, :next_placement, :about, :contact, :services]
+  before_filter :authorize, :except => [:ad, :click, :next_placement, :about, :contact, :services, :sendemail]
   helper :all # include all helpers, all the time
   
   protect_from_forgery

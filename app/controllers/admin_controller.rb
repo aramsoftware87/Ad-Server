@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   skip_before_filter :authorize, :only => [:login]
-  before_filter :ensure_admin, :except => [:login, :logout]
+  before_filter :ensure_admin, :except => [:login, :logout, :edit, :sendemail]
   
   def login
     session[:user_id] = nil

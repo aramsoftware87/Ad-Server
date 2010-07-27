@@ -26,7 +26,7 @@
 						<%= link_to "Admin", :controller => "users", :action => "index" %>
 						<%= "as" %>
 						<% end %>
-				 <%= link_to @current_user.name, :controller => 'admin', :action => 'edit', :id => @current_user.id %>&nbsp;&nbsp;&nbsp;</p>
+				 <%= link_to User.find(params[:id]).name, :controller => 'admin', :action => 'edit', :id => User.find(params[:id]).id %>&nbsp;&nbsp;&nbsp;</p>
 				</div>
 				<!-- <div id="toplinks" class="smallgraytext">
 									<%= link_to "Admin", :controller => "users", :check => 'yes' %>

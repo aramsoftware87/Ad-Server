@@ -1,6 +1,6 @@
 <h2 class="smalltitle">Editing User</h2>
 
-<% form_for @user, :url => {:controller => "users", :action => "update", :varo => "user"} do |f| %>
+<% form_for User.find(params[:id]), :url => {:controller => "users", :action => "update", :varo => "user"} do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -23,7 +23,6 @@
     <% f.label :type %><br />
    	<% f.radio_button(:utype, "Publisher") %> 
 	<% f.radio_button(:utype, "Advertiser") %> 
-	<% f.radio_button(:utype, "Admin") %> 
   </p>
   <p>
     <% f.label :archive %><br />
@@ -34,7 +33,7 @@
   </p>
 <% end %>
 <div align="center" class="smallgraytext" style="padding:9px;">
-<% if @user.utype == "Publisher" %>
+<% if User.find(params[:id]).utype == "Publisher" %>
 <%= link_to 'Home',:controller => 'websites',:action => "index", :id => params[:id] %>
 <% else %>
 <%= link_to 'Home',:controller => 'placements',:action => "index", :id => params[:id]	%>

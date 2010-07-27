@@ -1,0 +1,6 @@
+BEGIN TRANSACTION;
+CREATE TABLE "placements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "image" varchar(255), "url" varchar(255), "archive" boolean, "created_at" datetime, "updated_at" datetime, "user_id" integer);
+CREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE websiteplacements (id INTEGER PRIMARY KEY, rotation integer, embededcode text, status varchar(255), created_at datetime, updated_at datetime, placement_id integer, website_id integer, view integer, click integer);
+CREATE TABLE "websites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "archive" boolean, "created_at" datetime, "updated_at" datetime, "user_id" integer);
+COMMIT;

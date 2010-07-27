@@ -57,7 +57,7 @@
 						            return false;
 						        }
 						        httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
-						        httpRequest.open('GET', '<%= HOSTNAME %>/websites/ad/<%= website.id %>', true);
+						        httpRequest.open('GET', 'http://radsvr.com/websites/ad/<%= website.id %>', true);
 						        httpRequest.send('');
 						    }
 						    function alertContents(httpRequest) {

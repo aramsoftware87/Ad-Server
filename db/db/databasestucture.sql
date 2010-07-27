@@ -1,0 +1,12 @@
+BEGIN TRANSACTION;
+CREATE TABLE "placements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "image" varchar(255), "url" varchar(255), "archive" boolean, "created_at" datetime, "updated_at" datetime, "user_id" integer);
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+CREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE users (id INTEGER PRIMARY KEY, name varchar(255), email varchar(255), password varchar(255), utype varchar(255), archive boolean, created_at datetime, updated_at datetime);
+CREATE TABLE websiteplacements (id INTEGER PRIMARY KEY, rotation integer, embededcode text, status varchar(255), created_at datetime, updated_at datetime, placement_id integer, website_id integer);
+CREATE TABLE "websites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "archive" boolean, "created_at" datetime, "updated_at" datetime, "user_id" integer);
+CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id");
+CREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at");
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+COMMIT;

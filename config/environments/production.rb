@@ -23,4 +23,4 @@ config.action_controller.perform_caching             = true
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
 
-HOSTNAME="http://radsvr.com"
+HOSTNAME="http://radsvr.com/session"

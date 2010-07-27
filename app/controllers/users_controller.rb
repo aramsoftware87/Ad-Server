@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :ensure_admin
+  before_filter :ensure_admin, :except => [:update]
     
   # GET /users
   # GET /users.xml
