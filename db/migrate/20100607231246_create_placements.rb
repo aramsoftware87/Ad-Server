@@ -6,7 +6,7 @@ class CreatePlacements < ActiveRecord::Migration
       t.string :image
       t.string :url
       t.string :archive
-      t.string :advertiser
+      t.integer :user_id
 
       t.timestamps
     end
