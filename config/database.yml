@@ -14,7 +14,7 @@ development:
   adapter: mysql
   database: adserver
   username: root
-  password: s0ccer
+  password: 
   host: localhost
   pool: 5
   timeout: 5000
