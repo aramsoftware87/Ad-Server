@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.root :controller => 'index.html'
+  map.root :controller => 'session'
   
   
   map.resources :websiteplacements
