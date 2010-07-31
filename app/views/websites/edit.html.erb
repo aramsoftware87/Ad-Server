@@ -1,34 +1,4 @@
 <h2 class="smalltitle">Editing Website</h2>
 <% idd = params[:id] %>
-<% form_for(@website) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :id %><br />
-    <%= f.hidden_field :id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-<p>
-    <%= f.label :publisher %><br />
-    <%= f.hidden_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :archive %><br />
-    <%= f.check_box (:archive) %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => 'form' %>
 <% f = @website %>
-<div class="smallgraytext">
-<%= link_to 'Show', :controller => "websites", :action => "show", :id => idd,  :webid => f.id %> |
-<%= link_to 'Home', :controller => 'websites',:action => "index", :id => @website.user_id %>
-</div>

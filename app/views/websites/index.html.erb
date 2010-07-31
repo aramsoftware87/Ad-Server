@@ -1,5 +1,4 @@
-<head>
-	<title>Page</title>
+<title>My Websites</title>
 	<script type="text/javascript">
 	function selText(id)
 	  {
@@ -7,9 +6,7 @@
 	  }
 	</script>
 	<script type="text/javascript" src="/javascripts/jquery.js"></script>
-</head>
-<body>
-	<h2 class="smalltitle">My Websites</h2>
+<h2 class="smalltitle">My Websites</h2>
 <table border='1'>
   <tr>
     <th>Id</th>
@@ -74,11 +71,11 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-<div class="smallgraytext">
-<%= link_to 'New Website', :controller => 'websites',:action => "new", :id => idd %>
- - 
-<%= link_to 'Show Archive', :controller => 'websites', :action => 'archive', :id => idd %>
+<div class="span-24 last">
+  <span class="span-12">
+    <%= link_to 'Archive', :controller => 'websites', :action => 'archive', :id => idd %>
+  </span>
+  <span class="span-12 right last"
+    <%= button_to 'Add', :controller => 'websites',:action => "new", :id => idd %>
+  </span>
 </div>
-</body>

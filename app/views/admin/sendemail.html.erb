@@ -1,17 +1,13 @@
 <title> Forget Password </title>
-<h3>Send me Password</h3>
-<font color=green><%= flash[:notice] %></font>
-<div class="depot-form">
+<p class="span-24 center last">Enter your email address to get a reminder sent to you</p>
 <% form_tag do %>
-<fieldset> <legend>Forget Password</legend>
-<div> <label for="email">Email:</label> <%= text_field_tag :email, params[:email] %>
-</div>
-<div><br>
-<%= submit_tag "Send" , :action => "sendemail" %>
-
-</div> </fieldset>
-<div align="center" class="smallgraytext" style="padding:9px;">
-<%= link_to 'Home', :controller => 'admin' %>
-</div>
+  <div class="span-24 last">
+    <span class='span-14 right last'>
+      <%= label_tag :email, 'Email' %>
+      <%= text_field_tag :email, params[:email] %>
+    </span>
+  </div>
+  <div class='span-14 right last'>
+      <%= submit_tag "Send me a reminder" , :action => "sendemail" %>
+  <div>
 <% end %>
-</div>

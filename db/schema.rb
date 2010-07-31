@@ -9,16 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618210341) do
+ActiveRecord::Schema.define(:version => 20100610195017) do
 
   create_table "placements", :force => true do |t|
     t.string   "name"
     t.string   "image"
     t.string   "url"
-    t.boolean  "archive"
+    t.string   "archive"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -36,28 +36,30 @@ ActiveRecord::Schema.define(:version => 20100618210341) do
     t.string   "email"
     t.string   "password"
     t.string   "utype"
-    t.boolean  "archive"
+    t.string   "archive"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "websiteplacements", :force => true do |t|
+    t.integer  "placement_id"
+    t.integer  "website_id"
     t.integer  "rotation"
     t.text     "embededcode"
     t.string   "status"
+    t.integer  "view"
+    t.integer  "click"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "placement_id"
-    t.integer  "websited_id"
   end
 
   create_table "websites", :force => true do |t|
     t.string   "name"
     t.string   "url"
-    t.boolean  "archive"
+    t.string   "archive"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
 end
