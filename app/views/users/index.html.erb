@@ -1,6 +1,5 @@
-<%= link_to 'New User', new_user_path %>
-<h1>All Users</h1>
-<br>
+
+<h2 class="smalltitle">My Websites</h2>
 <table>
   <tr>
     <th>Id</th>
@@ -32,3 +31,11 @@
   </tr>
 <% end %>
 </table>
+<div class="span-24 last">
+  <span class="span-12">
+    &nbsp;
+  </span>
+  <span class="span-12 right last button">
+    <%= button_to 'Add', new_user_path %>
+  </span>
+</div>

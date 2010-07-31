@@ -1,38 +1,49 @@
-<h1>Editing User</h1>
-<br>
-<% form_for  @user, :url => {:controller => "users", :action => "update", :varo => "admin"} do |f| %>
+<h2 class="smalltitle">Editing User</h2>
+<title>Editing User</title>
+<% form_for User.find(params[:id]), :url => {:controller => "users", :action => "update", :varo => "user"} do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+  <div class="span-24 last">
+    <span class="span-14 right">
+      <% f.label :id %>
+      <%= f.hidden_field :id %>
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :email %>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :password %>
     <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :type %><br />
-   	<%= f.radio_button(:utype, "Publisher") %> Publisher
-	<%= f.radio_button(:utype, "Advertiser") %> Advertiser
-	<%= f.radio_button(:utype, "Admin") %> Admin
-  </p>
-  <p>
-    <%= f.label :archive %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+      <%= f.label :type %>
+     	<%= f.radio_button(:utype, "Publisher") %> Publisher
+  	<%= f.radio_button(:utype, "Advertiser") %> Advertiser
+  	<%= f.radio_button(:utype, "Admin") %> Admin
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :archive %>
     <%= f.check_box(:archive) %>
-  </p>
-  <p>
-    <%= f.submit "Update"  %>
-  </p>
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.submit "Update" %>
+    </span>
+  </div>
 <% end %>
-<br>
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', :controller => "users", :check => 'no' %>

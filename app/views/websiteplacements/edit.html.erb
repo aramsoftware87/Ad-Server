@@ -1,33 +1,40 @@
+<title>Edit Placement</title>
 <h2 class="smalltitle">Edit Placement</h2>
 
 <% form_for @websiteplacement, :url => {:controller => "websiteplacements", :action => "update", :id => params[:id], :uid => params[:uid], :webid => @websiteplacement.website_id } do |f| %>
   <%= f.error_messages %>
 
-  <p>
+  <div class="span-24 last">
+    <span class="span-14 right">
     <%= f.label :id %><br />
-    <%= f.hidden_field :id %>
-  </p>
-  <p>
+    <%= f.hidden_field :id %>     
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
     <%= f.label :placement_id %><br />
     <%= f.hidden_field :placement_id %>
-  </p>
-  <p>
-    <%= f.label :website_id %><br />
+    </span>
+  </div>   
     <%= f.hidden_field :website_id %>
-  </p>
-  <p>
+  <div class="span-24 last">
+    <span class="span-14 right">
     <%= f.label :rotation %><br />
     <%= f.text_field :rotation %>
-  </p>
-  <p>
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
     <%= f.label :status %><br />
    	<%= f.radio_button(:status, "Accept") %> Accept
-	<%= f.radio_button(:status, "Request") %> Request
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-
-  </p>
+  	<%= f.radio_button(:status, "Request") %> Request
+      </span>
+    </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+      <%= f.submit "Update" %>
+    </span>
+  </div>   
 <% end %>
 <div class="smallgraytext">
 <% if Websiteplacement.sum(@websiteplacement.rotation, :conditions => ['website_id = ?', @websiteplacement.website_id ]).to_i < 101 %>

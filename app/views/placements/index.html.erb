@@ -1,36 +1,36 @@
+<title>My Placements</title>
 <h2  class="smalltitle">My Placements</h2>
-
 <table border='1'>
   <tr>
     <th>Id</th>
     <th>Name</th>
-	<th>View</th>
+  	<th>View</th>
     <th>Url</th>
     <th>Archive</th>
     <th>Advertiser</th>
+    <th colspan="4">Options</th>
   </tr>
 <% idd = params[:id] %>
 <% for placement in @placements %>
-
 <tr>
     <td><%=h placement.id %></td>
     <td><%=h placement.name %></td>
-	<td><a href="http://<%= placement.url %>" target="_blank"><img src="<%= placement.image %>" hieght="30" width="30"></a></td>
+  	<td><a href="http://<%= placement.url %>" target="_blank"><img src="<%= placement.image %>" hieght="30" width="30"></a></td>
     <td><%=h placement.url %></td>
     <td><%=h placement.archive %></td>
     <td><%=h @current_user.name %></td>
     <td><%= link_to 'Show', :controller => "placements", :action => "show", :id => idd,  :plaid => placement.id %></td>
     <td><%= link_to 'Edit', :controller => "placements", :action => "edit", :id => idd,  :plaid => placement.id %></td>
     <td><%= link_to 'Destroy', placement, :confirm => 'Are you sure?', :method => :delete %></td>
-<td><%= link_to 'websites', :controller => 'websiteplacements', :action => 'placewebsites', :webid => placement.id, :uid => placement.user_id %></td>
+    <td><%= link_to 'websites', :controller => 'websiteplacements', :action => 'placewebsites', :webid => placement.id, :uid => placement.user_id %></td>
   </tr>
-
 <% end %>
 </table>
-
-<br />
-<div class="smallgraytext">
-<%= link_to 'New Placement', :controller => 'placements',:action => "new", :id => idd  %>
- - 
-<%= link_to 'Show Archive', :controller => 'placements', :action => 'archive', :id => idd %>
+<div class="span-24 last">
+  <span class="span-12">
+    <%= link_to 'Archive', :controller => 'placements', :action => 'archive', :id => idd %>
+  </span>
+  <span class="span-12 right last button">
+    <%= link_to 'Add Placement', :controller => 'placements',:action => "new", :id => idd  %>
+  </span>
 </div>

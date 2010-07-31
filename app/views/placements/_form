@@ -1,0 +1,41 @@
+<% form_for(@placement) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <% f.label :id %>
+    <% f.hidden_field :id %>      
+    </span>
+  </div>  
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </span>
+  </div>  
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+    </span>
+  </div>  
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    </span>
+  </div>  
+
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :archive %>
+    <%= f.check_box(:archive) %>
+    </span>
+  </div>  
+  <div class="span-24 last">
+    <span class="span-14 right">
+      <%= f.hidden_field :user_id, :value => params[:id] %>
+      <%= f.submit %>
+    </span>
+  </div>
+<% end %>

@@ -4,3 +4,4 @@
 th { background:#666; color:#fff; }
 tr:nth-child(odd) { background:#eee; }
 table { border:1px solid #666; }
+.button a { font-weight:bold; text-decoration:none; padding:5px 10px; background:#666; color:#fff; }

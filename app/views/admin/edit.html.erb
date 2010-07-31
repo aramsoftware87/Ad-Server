@@ -1,41 +1,48 @@
 <h2 class="smalltitle">Editing User</h2>
-
+<title>Editing User</title>
 <% form_for User.find(params[:id]), :url => {:controller => "users", :action => "update", :varo => "user"} do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <% f.label :id %><br />
-    <%= f.hidden_field :id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+  <div class="span-24 last">
+    <span class="span-14 right">
+      <% f.label :id %>
+      <%= f.hidden_field :id %>
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :email %>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <%= f.label :password %>
     <%= f.text_field :password %>
-  </p>
-  <p>
-    <% f.label :type %><br />
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <% f.label :type %>
    	<% f.radio_button(:utype, "Publisher") %> 
-	<% f.radio_button(:utype, "Advertiser") %> 
-  </p>
-  <p>
-    <% f.label :archive %><br />
+  	<% f.radio_button(:utype, "Advertiser") %> 
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
+    <% f.label :archive %>
     <% f.check_box(:archive) %>
-  </p>
-  <p>
+    </span>
+  </div>
+  <div class="span-24 last">
+    <span class="span-14 right">
     <%= f.submit "Update" %>
-  </p>
+    </span>
+  </div>
 <% end %>
-<div align="center" class="smallgraytext" style="padding:9px;">
-<% if User.find(params[:id]).utype == "Publisher" %>
-<%= link_to 'Home',:controller => 'websites',:action => "index", :id => params[:id] %>
-<% else %>
-<%= link_to 'Home',:controller => 'placements',:action => "index", :id => params[:id]	%>
-<% end %>
-</div>
