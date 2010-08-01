@@ -30,8 +30,8 @@
 </p>
 <div class="smallgraytext">
 <% if @current_user.utype == "Publisher"%>
-<%= link_to 'Edit', :controller => "websiteplacements", :action => "edit",:id => @websiteplacement.id, :uid => params[:uid] , :webid => @websiteplacement.website_id %>
-<%end%> |
+<%= link_to 'Edit', :controller => "websiteplacements", :action => "edit",:id => @websiteplacement.id, :uid => params[:uid] , :webid => @websiteplacement.website_id %> | 
+<%end%>
 <% if @current_user.utype == "Publisher" %>
 <%= link_to 'Back', :controller => "websiteplacements", :action => "webplacements",:uid => params[:uid], :webid => @websiteplacement.website_id %>
 <% else %>

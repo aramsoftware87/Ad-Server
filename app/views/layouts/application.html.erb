@@ -16,7 +16,6 @@
           <h1>Ad-Server</h1>
     	  </span>
     	  <span class="span-8 last right">
-    	    <a href="/">Home</a> | 
       	  <% if params[:id] && @user = User.find(params[:id]) %>
         	  <%= link_to @user.name, :controller => 'admin', :action => 'edit', :id => @user.id %> | 
         	  <a href="/admin/logout">Logout</a>
